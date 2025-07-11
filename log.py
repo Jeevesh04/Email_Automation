@@ -12,7 +12,10 @@ def setup_google_sheets(sheet_name: str, worksheet_name: str):
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive"
     ]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+    # Load credentials from GitHub secret
+    google_creds = json.loads(os.environ["GOOGLE_CREDENTIALS"])
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(google_creds, scope)
+    
     client = gspread.authorize(creds)
     spreadsheet = client.open(sheet_name)
     sheet = spreadsheet.worksheet(worksheet_name)
