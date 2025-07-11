@@ -2,8 +2,8 @@ name: Run Email Tracker
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Runs every 4 hours
-  workflow_dispatch:        # Optional manual run
+    - cron: '0 */4 * * *'  # Every 4 hours
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -21,9 +21,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Decode and save credentials.json
-        run: |
-          echo "${{ secrets.GOOGLE_CREDS }}" > credentials.json
+      - name: Export GOOGLE_CREDS to environment
+        run: echo "GOOGLE_CREDS=${{ secrets.GOOGLE_CREDS }}" >> $GITHUB_ENV
 
       - name: Run script
         run: python log.py
