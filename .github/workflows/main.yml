@@ -22,8 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Decode and save credentials.json
-        run: |
-          echo "${{ secrets.GOOGLE_CREDS }}" > credentials.json
+        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
 
       - name: Run script
         run: python log.py
