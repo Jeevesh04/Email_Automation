@@ -13,16 +13,14 @@ def setup_google_sheets(sheet_name: str, worksheet_name: str):
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive"
     ]
-    
-    # ✅ Load credentials from environment variable
     google_creds = json.loads(os.environ["GOOGLE_CREDS"])
-    
     creds = ServiceAccountCredentials.from_json_keyfile_dict(google_creds, scope)
     client = gspread.authorize(creds)
     spreadsheet = client.open(sheet_name)
     sheet = spreadsheet.worksheet(worksheet_name)
     return sheet
-    
+
+
 # --- 📝 Update Status in Sheet ---
 def update_status(sheet, email, new_status, column_name):
     header = sheet.row_values(1)
