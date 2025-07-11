@@ -1,0 +1,6 @@
+langgraph
+gspread
+oauth2client
+tzdata
+pytz
+apscheduler

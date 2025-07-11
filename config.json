@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Account 1",
+    "email": "olivia@octopihealth.org",
+    "password": "4nsA4KrTcNEM",
+    "sender_name": "Olivia",
+    "sheet_name": "Contacts",
+    "worksheet_name": "Sheet4"
+  },
+  {
+    "name": "Account 2",
+    "email": "lokesh@octopihealth.org",
+    "password": "GZ6nmbZarxSR",
+    "sender_name": "Lokesh",
+    "sheet_name": "Contacts",
+    "worksheet_name": "Sheet5"
+  }
+]
