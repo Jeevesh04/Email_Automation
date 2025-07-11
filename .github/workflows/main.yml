@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Export GOOGLE_CREDS to environment
-        run: echo "GOOGLE_CREDS=${{ secrets.GOOGLE_CREDS }}" >> $GITHUB_ENV
+      - name: Decode GOOGLE_CREDS_B64 to credentials.json
+        run: echo "${{ secrets.GOOGLE_CREDS_B64 }}" | base64 -d > credentials.json
 
       - name: Run script
         run: python log.py
