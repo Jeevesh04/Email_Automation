@@ -1,3 +1,4 @@
+import os
 import requests  # type: ignore
 import time
 from datetime import datetime, timedelta
